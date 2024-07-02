@@ -33,7 +33,7 @@ class Comment(Base):
     id = Column(Integer, primary_key=True)
     post_id = Column(Integer, ForeignKey('post.id'))
     post = relationship(Post)
-    user_id = Column(Integer, ForeignKey('post.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
     text = Column(String(250), nullable=False)
     likes = Column(Integer)
@@ -42,7 +42,7 @@ class Comment(Base):
 class Story(Base):
     __tablename__ = 'story'
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('post.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
     content_url = Column(String(250), nullable=False)
     content_type = Column(Integer, nullable=False)
